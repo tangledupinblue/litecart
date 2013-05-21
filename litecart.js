@@ -4,6 +4,7 @@
  * Date: 2013/04/20
  * Time: 3:52 PM
  * To change this template use File | Settings | File Templates.
+ * test
  */
 function Litecart() {
     this.lineItems = [];

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/javascript" src="litecart.js"></script>
+    <link type="text/css" href="litecart.css" rel="stylesheet" />
+    <script type="text/javascript">
+
+
+        //cart.postToUrl="http://854952499875268996.weebly.com/ajax/apps/formSubmitAjax.php";
+        cart.postToUrl = "http://www.weebly.com/weebly/apps/formSubmit.php";
+        cart.currency="R";
+        cart.firstNameInputId = "_u834785283721654584[first]";
+        cart.lastNameInputId = "_u834785283721654584[last]";
+        cart.emailInputId = "_u608449726573274557";
+        cart.orderInfoInputId =   "ta1"; //"input-826992407896158465";
+        cart.additionalPostParams = '{ "wsite_subject" : "", "form_version" : "2", "wsite_approved" : "weebly", "ucfid" : "196407836893540433" }';
+        cart.postFormId = "form-196407836893540433";
+
+        alert(cart.orderInfoPostId);
+
+    </script>
+
+    <script type="text/javascript">
+function setTextValue(val) {
+    document.getElementById('testText').value=val;
+    //setControlValuesOnForm();
+    //document.getElementById('ta1').value=cart.toText();
+}
+    //document.getElementById('ta1').value=cart.toText();
+    </script>
+
+    <title>lite cart test</title>
+</head>
+<body>
+    <label>Live Editing</label>
+    <div id="cart">
+    </div>
+    <input type="button" value="milk" id="milk" onclick="addToCart('milk',19.00)" />
+    <input type="button" value="cheese" id="cheese" onclick="addToCart('cheese',50.00)" />
+    <input type="button" value="milk tart" id="milk tart" onclick="addToCart('milk tart',40.00)" />
+    <br>
+    <label for="testText">testText</label><input type="text" id="testText" value="x" />
+    <input type="button" value="test" id="testTextbtn" onclick="setTextValue('HELLO');" />
+    <!--<input type="button" value="test" id="testTextbtn" onclick="alert('HELLO');" />-->
+    <div><br /><br /></div>
+
+    <form enctype="multipart/form-data" action="http://www.weebly.com/weebly/apps/formSubmit.php" method="POST" id="form-196407836893540433">
+        <div id="196407836893540433-form-parent" class="wsite-form-container" style="margin-top:10px;">
+            <h2 style="text-align:left;">Please confirm name and email and we will get back to you shortly<br /></h2>
+            <ul class="formlist" id="196407836893540433-form-list">
+
+                <div class="wsite-form-field" style="margin:5px 0px 5px 0px;">
+                    <label class="wsite-form-label" for="input-608449726573274557">Email <span class="form-required">*</span></label>
+                    <div class="wsite-form-input-container">
+                        <input id="input-608449726573274557" class="wsite-form-input wsite-input" type="text" name="_u608449726573274557" style="width:370px;" />
+                    </div>
+                    <div id="instructions-608449726573274557" class="wsite-form-instructions" style="display:none;"></div>
+                </div>
+
+                <div class="wsite-form-field" style="margin:5px 0px 5px 0px; width:380px;">
+                    <label class="wsite-form-label" for="input-834785283721654584">Name <span class="form-required">*</span></label>
+                    <div style="clear:both;"></div>
+                    <div class="wsite-form-input-container wsite-form-left">
+                        <input id="input-834785283721654584" class="wsite-form-input wsite-input" type="text" name="_u834785283721654584[first]" style="width:138px;" />
+                        <label class="wsite-form-sublabel" for="input-834785283721654584">First</label>
+                    </div>
+                    <div class="wsite-form-input-container wsite-form-right">
+                        <input id="input-834785283721654584-1" class="wsite-form-input wsite-input" type="text" name="_u834785283721654584[last]" style="width:205px;" />
+                        <label class="wsite-form-sublabel" for="input-834785283721654584-1">Last</label>
+                    </div>
+                    <div id="instructions-834785283721654584" class="wsite-form-instructions" style="display:none;"></div>
+                </div>
+                <div style="clear:both;"></div>
+
+                <div class="wsite-form-field" style="margin:5px 0px 5px 0px;">
+                    <label class="wsite-form-label" for="ta1">Order Details <span class="form-required">*</span></label>
+                    <div class="wsite-form-input-container">
+                        <!--<textarea id="input-826992407896158465" class="wsite-form-input wsite-input" name="_u826992407896158465" style="width:370px; height: 200px"></textarea>-->
+                        <textarea id="ta1" class="wsite-form-input wsite-input" name="_u826992407896158465" style="width:370px; height: 200px"></textarea>
+                    </div>
+                    <div id="ta2" class="wsite-form-instructions" style="display:none;"></div>
+                </div>
+            </ul>
+        </div>
+        <div style="display:none; visibility:hidden;">
+            <input type="text" name="wsite_subject" />
+        </div>
+        <div style="text-align:left; margin-top:10px; margin-bottom:10px;">
+            <input type="hidden" name="form_version" value="2" />
+            <input type="hidden" name="wsite_approved" id="wsite-approved" value="approved" />
+            <input type="hidden" name="ucfid" value="196407836893540433" />
+            <input type='submit' style='position:absolute;top:0;left:-9999px;width:1px;height:1px' /><a class='wsite-button' onclick="document.getElementById('form-196407836893540433').submit()"><span class='wsite-button-inner'>Submit</span></a>
+        </div>
+    </form>
+</body>
+</html>

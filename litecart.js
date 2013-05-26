@@ -183,6 +183,7 @@ function getCurrentFilePath() {
     var scriptEls = document.getElementsByTagName( 'script' );
     var thisScriptEl = scriptEls[scriptEls.length - 1];
     var scriptPath = thisScriptEl.src;
+    alert(scriptPath);
     return scriptPath.substr(0, scriptPath.lastIndexOf('/') + 1);
 }
 

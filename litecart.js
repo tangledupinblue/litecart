@@ -57,7 +57,7 @@ function Litecart() {
             var li = this.lineItems[index];
             tbl += "<tr><td>{0}</td><td>{1}</td><td>{3} {2}</td>".format(
                             li.item, li.qty, li.price.toFixed(2), this.currency);
-            tbl += "<td><input type=\"image\" id=\"{0}+\" src=\"add.gif\" onclick=\"addToCart('{0}',{1})\">".format(li.item, li.price);
+            tbl += "<td><input type=\"image\" id=\"{0}+\" src=\"{2}add.gif\" onclick=\"addToCart('{0}',{1})\">".format(li.item, li.price, getCurrentFilePath());
             tbl += "<input type=\"image\" id=\"{0}-\" src=\"remove.png\" onclick=\"removeFromCart('{0}')\"></td>".format(li.item);
             tbl += "</tr>";
             priceSummer += li.qty * li.price;
@@ -81,8 +81,8 @@ function Litecart() {
         tbl += "<tr><td><input type=\"image\" id=\"cancel-\" src=\"cancel.gif\" onclick=\"refreshCart()\" /></td>";
 //        tbl += "<td><input type=\"image\" id=\"send-\" src=\"send.gif\" formaction=\"{0}\" /></td></tr>".format(this.postToUrl);
 //        tbl += "<td><input type=\"image\" id=\"send-\" src=\"send.gif\" onclick=\"{0}\" /></td></tr>".format("setControlValuesOnForm()");
-//        tbl += "<td><input type=\"button\" id=\"send-\" onclick=\"{0}\" /></td></tr>".format("setControlValuesOnForm()");
-        tbl += "<td><input type=\"button\" id=\"send-\" onclick=\"{0}\" /></td></tr>".format("setTextValue('WASSUP')");
+        tbl += "<td><input type=\"button\" id=\"send-\" onclick=\"{0}\" /></td></tr>".format("setControlValuesOnForm()");
+//        tbl += "<td><input type=\"button\" id=\"send-\" onclick=\"{0}\" /></td></tr>".format("setTextValue('WASSUP')");
         tbl += "</table>";
         tbl += "<hidden id=\"{0}\" value=\"{1}\" />".format(this.orderInfoPostId, this.toText());
         var postParams = JSON.parse(this.additionalPostParams);
@@ -110,14 +110,14 @@ function Litecart() {
         txt += "Total Order Value of {1}{0}".format(priceSummer, this.currency);
         return txt;
     };
-};
+}
 
 function LitecartLineItem(item, qty, price) {
     this.qty = qty;
     this.item = item;
     this.price = price;
     return this;
-};
+}
 
 function clearCart() {
     console.log("clear cart");
@@ -177,8 +177,16 @@ function copyObject(from, to) {
         //copy all the fields
         to[key] = from[key];
     }
-    //return newObj;
 }
+
+function getCurrentFilePath() {
+    var scriptEls = document.getElementsByTagName( 'script' );
+    var thisScriptEl = scriptEls[scriptEls.length - 1];
+    var scriptPath = thisScriptEl.src;
+    return scriptPath.substr(0, scriptPath.lastIndexOf('/') + 1);
+}
+
+//console.log( [scriptPath, scriptFolder] );
 
 console.log("starting");
 try {
@@ -187,25 +195,11 @@ try {
 catch (e) {
 }
 var cart = new Litecart();
-//console.log("cart");
 if (obj != null) {
     copyObject(obj,cart);
 }
 
-//var cart = new Litecart();
-
-//refreshCart();
-
-//cart.addItem("donkey",2.0);
-//cart.addItem("donkey",2.0);
-
 console.log(JSON.stringify(cart));
-
-
-
-//console.log(cart);
-//console.log(cart.lineItems[0].qty);
-//console.log(cart.lineItems.length);
 
 
 

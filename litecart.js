@@ -149,15 +149,9 @@ function removeFromCart(item) {
 }
 
 function setControlValuesOnForm(inputControlId) {
-    //on the current form, find the identified controls and set their values....
-//    document.getElementById(cart.firstNamePostId).value = 'first Name';
-//    document.getElementById(cart.lastNamePostId).value = 'last Name';
-//    document.getElementById(cart.emailPostId).value = 'email';
     var targetEl = document.getElementById(inputControlId);
-    alert("writing to: " + targetEl.id);
+    console.log("writing to: " + targetEl.id);
     targetEl.value = cart.toText();
-    //document.getElementById('ta1').value=cart.toText();
-//    console.log(document.getElementById(cart.orderInfoPostId).value);
 }
 
 //first, checks if it isn't implemented yet

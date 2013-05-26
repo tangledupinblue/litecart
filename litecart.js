@@ -15,6 +15,7 @@ function Litecart() {
     this.emailPostId = "email";
     this.orderInfoPostId = "orderDetails";
     this.additionalPostParams = [];
+    this.imageDirectory = "";
     //this.postFormId = "userData";
     this.addItem = function(item, price) {
         var itemFound = false;
@@ -57,8 +58,8 @@ function Litecart() {
             var li = this.lineItems[index];
             tbl += "<tr><td>{0}</td><td>{1}</td><td>{3} {2}</td>".format(
                             li.item, li.qty, li.price.toFixed(2), this.currency);
-            tbl += "<td><input type=\"image\" id=\"{0}+\" src=\"{2}add.gif\" onclick=\"addToCart('{0}',{1})\">".format(li.item, li.price, getCurrentFilePath());
-            tbl += "<input type=\"image\" id=\"{0}-\" src=\"remove.png\" onclick=\"removeFromCart('{0}')\"></td>".format(li.item);
+            tbl += "<td><input type=\"image\" id=\"{0}+\" src=\"{2}add.gif\" onclick=\"addToCart('{0}',{1})\">".format(li.item, li.price, this.imageDirectory);
+            tbl += "<input type=\"image\" id=\"{0}-\" src=\"{2}remove.png\" onclick=\"removeFromCart('{0}')\"></td>".format(li.item, this.imageDirectory);
             tbl += "</tr>";
             priceSummer += li.qty * li.price;
         }

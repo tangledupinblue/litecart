@@ -1,6 +1,6 @@
 /**
  * Created with JetBrains WebStorm.
- * User: barrys
+ * User: tangledupinblue
  * Date: 2013/04/20
  * Time: 3:52 PM
  * To change this template use File | Settings | File Templates.
@@ -10,11 +10,11 @@ function Litecart() {
     this.lineItems = [];
     //this.postToUrl = "";
     this.currency = "$";
-    this.firstNamePostId = "firstName";
-    this.lastNamePostId = "lastName";
-    this.emailPostId = "email";
-    this.orderInfoPostId = "orderDetails";
-    this.additionalPostParams = [];
+//    this.firstNamePostId = "firstName";
+//    this.lastNamePostId = "lastName";
+//    this.emailPostId = "email";
+//    this.orderInfoPostId = "orderDetails";
+//    this.additionalPostParams = [];
     this.imageDirectory = "";
     //this.postFormId = "userData";
     this.addItem = function(item, price) {
@@ -71,32 +71,32 @@ function Litecart() {
         return tbl;
     };
 
-    this.generateDetailsForm = function() {
-        var tbl = "<form accept-charset=utf-8 enctype=\"multipart/form-data\" method=\"POST\"><table>";
-        tbl += "<tr><td colspan='2'>Please enter details and Send</td></tr>";
-        tbl += "<tr><td>First Name</td><td>Last Name</td></tr>";
-        tbl += "<tr><td><input type=\"text\" id=\"{0}\" /></td>".format(this.firstNamePostId);
-        tbl += "<td><input type=\"text\" /></td></tr>".format(this.lastNamePostId);
-        tbl += "<tr><td colspan='2'>Email</td></tr>";
-        tbl += "<tr><td colspan='2'><input type=\"text\" id=\"{0}\" /></td></tr>".format(this.emailPostId);
-        tbl += "<tr><td><input type=\"image\" id=\"cancel-\" src=\"cancel.gif\" onclick=\"refreshCart()\" /></td>";
-//        tbl += "<td><input type=\"image\" id=\"send-\" src=\"send.gif\" formaction=\"{0}\" /></td></tr>".format(this.postToUrl);
-//        tbl += "<td><input type=\"image\" id=\"send-\" src=\"send.gif\" onclick=\"{0}\" /></td></tr>".format("setControlValuesOnForm()");
-        tbl += "<td><input type=\"button\" id=\"send-\" onclick=\"{0}\" /></td></tr>".format("setControlValuesOnForm()");
-//        tbl += "<td><input type=\"button\" id=\"send-\" onclick=\"{0}\" /></td></tr>".format("setTextValue('WASSUP')");
-        tbl += "</table>";
-        tbl += "<hidden id=\"{0}\" value=\"{1}\" />".format(this.orderInfoPostId, this.toText());
-        var postParams = JSON.parse(this.additionalPostParams);
-//        for (index = 0; index < postParams.; ++index) {
-//            var nextParam = this.additionalPostParams[index];
-//            console.log("<hidden id=\"{0}\" value=\"{1}\" />".format(nextParam[0],nextParam[1]));
+//    this.generateDetailsForm = function() {
+//        var tbl = "<form accept-charset=utf-8 enctype=\"multipart/form-data\" method=\"POST\"><table>";
+//        tbl += "<tr><td colspan='2'>Please enter details and Send</td></tr>";
+//        tbl += "<tr><td>First Name</td><td>Last Name</td></tr>";
+//        tbl += "<tr><td><input type=\"text\" id=\"{0}\" /></td>".format(this.firstNamePostId);
+//        tbl += "<td><input type=\"text\" /></td></tr>".format(this.lastNamePostId);
+//        tbl += "<tr><td colspan='2'>Email</td></tr>";
+//        tbl += "<tr><td colspan='2'><input type=\"text\" id=\"{0}\" /></td></tr>".format(this.emailPostId);
+//        tbl += "<tr><td><input type=\"image\" id=\"cancel-\" src=\"cancel.gif\" onclick=\"refreshCart()\" /></td>";
+////        tbl += "<td><input type=\"image\" id=\"send-\" src=\"send.gif\" formaction=\"{0}\" /></td></tr>".format(this.postToUrl);
+////        tbl += "<td><input type=\"image\" id=\"send-\" src=\"send.gif\" onclick=\"{0}\" /></td></tr>".format("setControlValuesOnForm()");
+//        tbl += "<td><input type=\"button\" id=\"send-\" onclick=\"{0}\" /></td></tr>".format("setControlValuesOnForm()");
+////        tbl += "<td><input type=\"button\" id=\"send-\" onclick=\"{0}\" /></td></tr>".format("setTextValue('WASSUP')");
+//        tbl += "</table>";
+//        tbl += "<hidden id=\"{0}\" value=\"{1}\" />".format(this.orderInfoPostId, this.toText());
+//        var postParams = JSON.parse(this.additionalPostParams);
+////        for (index = 0; index < postParams.; ++index) {
+////            var nextParam = this.additionalPostParams[index];
+////            console.log("<hidden id=\"{0}\" value=\"{1}\" />".format(nextParam[0],nextParam[1]));
+////        }
+//        for(var propt in postParams){
+//            console.log("<hidden id=\"{0}\" value=\"{1}\" />".format(propt,postParams[propt]));
 //        }
-        for(var propt in postParams){
-            console.log("<hidden id=\"{0}\" value=\"{1}\" />".format(propt,postParams[propt]));
-        }
-        tbl += "</form>";
-        return tbl;
-    };
+//        tbl += "</form>";
+//        return tbl;
+//    };
     
     this.toText = function() {
         var txt = "";
@@ -148,13 +148,14 @@ function removeFromCart(item) {
     refreshCart();
 }
 
-function setControlValuesOnForm() {
+function setControlValuesOnForm(inputControlId) {
     //on the current form, find the identified controls and set their values....
 //    document.getElementById(cart.firstNamePostId).value = 'first Name';
 //    document.getElementById(cart.lastNamePostId).value = 'last Name';
 //    document.getElementById(cart.emailPostId).value = 'email';
-    alert("writing cart out");
-    document.getElementById(cart.orderInfoPostId).value = cart.toText();
+    var targetEl = document.getElementById(inputControlId);
+    alert("writing to: " + targetEl.id);
+    targetEl.value = cart.toText();
     //document.getElementById('ta1').value=cart.toText();
 //    console.log(document.getElementById(cart.orderInfoPostId).value);
 }

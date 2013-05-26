@@ -10,25 +10,16 @@
         //cart.postToUrl="http://854952499875268996.weebly.com/ajax/apps/formSubmitAjax.php";
         cart.postToUrl = "http://www.weebly.com/weebly/apps/formSubmit.php";
         cart.currency="R";
-        cart.firstNameInputId = "_u834785283721654584[first]";
-        cart.lastNameInputId = "_u834785283721654584[last]";
-        cart.emailInputId = "_u608449726573274557";
-        cart.orderInfoInputId =   "ta1"; //"input-826992407896158465";
-        cart.additionalPostParams = '{ "wsite_subject" : "", "form_version" : "2", "wsite_approved" : "weebly", "ucfid" : "196407836893540433" }';
-        cart.postFormId = "form-196407836893540433";
+//        cart.firstNameInputId = "_u834785283721654584[first]";
+//        cart.lastNameInputId = "_u834785283721654584[last]";
+//        cart.emailInputId = "_u608449726573274557";
+//        cart.orderInfoInputId =   "ta1"; //"input-826992407896158465";
+//        cart.additionalPostParams = '{ "wsite_subject" : "", "form_version" : "2", "wsite_approved" : "weebly", "ucfid" : "196407836893540433" }';
+//        cart.postFormId = "form-196407836893540433";
         cart.imageDirectory = "https://raw.github.com/tangledupinblue/litecart/master/";
 
         //alert(cart.orderInfoPostId);
 
-    </script>
-
-    <script type="text/javascript">
-function setTextValue(val) {
-    document.getElementById('testText').value=val;
-    //setControlValuesOnForm();
-    //document.getElementById('ta1').value=cart.toText();
-}
-    //document.getElementById('ta1').value=cart.toText();
     </script>
 
     <title>lite cart test</title>
@@ -94,5 +85,8 @@ function setTextValue(val) {
             <input type='submit' style='position:absolute;top:0;left:-9999px;width:1px;height:1px' /><a class='wsite-button' onclick="document.getElementById('form-196407836893540433').submit()"><span class='wsite-button-inner'>Submit</span></a>
         </div>
     </form>
+    <script type="text/javascript">
+        setControlValuesOnForm('ta1');
+    </script>
 </body>
 </html>

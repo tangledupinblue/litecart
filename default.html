@@ -5,8 +5,6 @@
     <script type="text/javascript" src="litecart.js"></script>
     <link type="text/css" href="litecart.css" rel="stylesheet" />
     <script type="text/javascript">
-
-
         //cart.postToUrl="http://854952499875268996.weebly.com/ajax/apps/formSubmitAjax.php";
         cart.postToUrl = "http://www.weebly.com/weebly/apps/formSubmit.php";
         cart.currency="R";
@@ -25,6 +23,7 @@
     <title>lite cart test</title>
 </head>
 <body>
+
     <label>Live Editing</label>
     <div id="cart">
     </div>
@@ -36,6 +35,10 @@
     <input type="button" value="test" id="testTextbtn" onclick="setTextValue('HELLO');" />
     <!--<input type="button" value="test" id="testTextbtn" onclick="alert('HELLO');" />-->
     <div><br /><br /></div>
+
+    <input type="button" value="Clear Cart" onclick="clearCart();" />
+    <input type="button" value="Hello" onclick="alert('Hello');" />
+
 
     <form enctype="multipart/form-data" action="http://www.weebly.com/weebly/apps/formSubmit.php" method="POST" id="form-196407836893540433">
         <div id="196407836893540433-form-parent" class="wsite-form-container" style="margin-top:10px;">

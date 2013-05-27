@@ -66,7 +66,8 @@ function Litecart() {
         tbl += "<tr><td>TOTAL</td><td></td><td>{1} {0}</td>".format(priceSummer.toFixed(2), this.currency);
 //        tbl += "<td><input type=\"image\" id=\"order\" src=\"order.gif\" onclick=\"enterContactDetails()\"</td></tr>";
 //        tbl += "<td><input type=\"image\" id=\"order\" src=\"order.gif\" onclick=\"setControlValuesOnForm()\"</td></tr>";
-        tbl += "<td><input type=\"button\" id=\"order\" onclick=\"setControlValuesOnForm()\"</td></tr>";
+          //tbl += "<td><input type=\"button\" id=\"order\" onclick=\"setControlValuesOnForm()\"</td></tr>";
+        tbl += "<td></td>";
         tbl += "</table>";
         return tbl;
     };
@@ -123,7 +124,6 @@ function LitecartLineItem(item, qty, price) {
 function clearCart() {
     console.log("clear cart");
     cart.lineItems.splice(0,cart.lineItems.length);
-    refreshCart();
 }
 
 function refreshCart() {

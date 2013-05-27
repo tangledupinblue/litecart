@@ -124,6 +124,7 @@ function LitecartLineItem(item, qty, price) {
 function clearCart() {
     console.log("clear cart");
     cart.lineItems.splice(0,cart.lineItems.length);
+    sessionStorage.setItem("litecart",JSON.stringify(cart));
 }
 
 function refreshCart() {
@@ -185,7 +186,7 @@ function getCurrentFilePath() {
 
 //console.log( [scriptPath, scriptFolder] );
 
-console.log("starting");
+console.log("starting litecart");
 try {
     var obj = JSON.parse(sessionStorage.getItem("litecart"));
 }

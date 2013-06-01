@@ -53,10 +53,10 @@ function Litecart() {
     this.toTable = function() {
         var tbl = "<table>";
         var priceSummer = 0;
-        tbl += "<tr><th>Item</th><th style=\"width:20px\"></th><th>Qty</th><th>Price</th><th></th></tr>";
+        tbl += "<tr><th>Item</th><th style=\"width:20px\"></th><th>Qty</th><th style=\"width:20px;\"></th><th>Price</th><th></th></tr>";
         for (index = 0; index < this.lineItems.length; ++index) {
             var li = this.lineItems[index];
-            tbl += "<tr><td>{0}</td><td></td><td style=\"text-align:right\">{1}</td><td style=\"text-align:right\">{3} {2}</td>".format(
+            tbl += "<tr><td>{0}</td><td></td><td style=\"text-align:right\">{1}</td><td></td><td style=\"text-align:right\">{3} {2}</td>".format(
                             li.item, li.qty, li.price.toFixed(2), this.currency);
             tbl += "<td><input type=\"image\" id=\"{0}+\" src=\"{2}add.gif\" onclick=\"addToCart('{0}',{1})\">".format(li.item, li.price, this.imageDirectory);
             tbl += "<input type=\"image\" id=\"{0}-\" src=\"{1}remove.png\" onclick=\"removeFromCart('{0}')\"></td>".format(li.item, this.imageDirectory);
@@ -106,10 +106,10 @@ function Litecart() {
         for (index = 0; index < this.lineItems.length; ++index) {
             var li = this.lineItems[index];
             txt += "{0} x{1} at {2} each\n".format(
-                li.item.toString().padRight(15," "), li.qty.toString().padLeft(4," "), (this.currency + " " + li.price.toFixed(2)).padLeft(10," "));
+                li.item.toString().padRight(20," "), li.qty.toString().padLeft(4," "), (this.currency + " " + li.price.toFixed(2)).padLeft(10," "));
             priceSummer += li.qty * li.price;
         }
-        txt += "Total Order Value of {1}{0}\n".format(priceSummer, this.currency);
+        txt += "\nTotal Order Value of {1} {0}\n".format(priceSummer.toFixed(2), this.currency);
         return txt;
     };
 }

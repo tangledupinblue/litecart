@@ -1,4 +1,5 @@
 /*
+Original Credit To:
 http://icant.co.uk/csstablegallery/index.php?css=71
 
 Data Tables and Cascading Style Sheets Gallery
@@ -6,6 +7,9 @@ Title: Casablanca
 Author: RODrigo CASTilho Galvao Ferreira - RODCAST
 URL: http://rodrigocastilho.com
 Update: 04/04/2008 10:51 AM
+
+With Modifications
+tangledupinblue @ github
 */
 
 table {
@@ -90,4 +94,17 @@ tbody td a[href="http://www.rodcast.com.br/"] {
 tbody a:visited:after {
     font-family: Verdana,sans-serif;
     content: "\00A0\221A"
+}
+
+
+.rightAlignTd td {
+    text-align:right;
+}
+
+.addToCartButton {
+    background-color:#E63C1E;
+    border-radius:3px;
+    border:#CC3300;
+    border-style:double;
+    border-bottom-color:orange;
 }

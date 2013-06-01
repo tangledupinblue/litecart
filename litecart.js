@@ -53,10 +53,10 @@ function Litecart() {
     this.toTable = function() {
         var tbl = "<table>";
         var priceSummer = 0;
-        tbl += "<tr><th>Item</th><th>Qty</th><th>Price</th><th></th></tr>";
+        tbl += "<tr><th>Item</th><th style=\"width:20px\"></th><th>Qty</th><th>Price</th><th></th></tr>";
         for (index = 0; index < this.lineItems.length; ++index) {
             var li = this.lineItems[index];
-            tbl += "<tr><td>{0}</td><td>{1}</td><td>{3} {2}</td>".format(
+            tbl += "<tr><td>{0}</td><td></td><td style=\"text-align:right\">{1}</td><td style=\"text-align:right\">{3} {2}</td>".format(
                             li.item, li.qty, li.price.toFixed(2), this.currency);
             tbl += "<td><input type=\"image\" id=\"{0}+\" src=\"{2}add.gif\" onclick=\"addToCart('{0}',{1})\">".format(li.item, li.price, this.imageDirectory);
             tbl += "<input type=\"image\" id=\"{0}-\" src=\"{1}remove.png\" onclick=\"removeFromCart('{0}')\"></td>".format(li.item, this.imageDirectory);
@@ -105,11 +105,11 @@ function Litecart() {
         //txt += "ItemQtyPrice\n";
         for (index = 0; index < this.lineItems.length; ++index) {
             var li = this.lineItems[index];
-            txt += "{0} x{1} at {3}{2} each\n".format(
-                li.item, li.qty, li.price, this.currency);
+            txt += "{0} x{1} at {2} each\n".format(
+                li.item.toString().padRight(15," "), li.qty.toString().padLeft(4," "), (this.currency + " " + li.price.toFixed(2)).padLeft(10," "));
             priceSummer += li.qty * li.price;
         }
-        txt += "Total Order Value of {1}{0}".format(priceSummer, this.currency);
+        txt += "Total Order Value of {1}{0}\n".format(priceSummer, this.currency);
         return txt;
     };
 }
@@ -155,6 +155,7 @@ function setControlValuesOnForm(inputControlId) {
     targetEl.value = cart.toText();
 }
 
+//formatting strings
 //first, checks if it isn't implemented yet
 if (!String.prototype.format) {
     String.prototype.format = function() {
@@ -166,6 +167,38 @@ if (!String.prototype.format) {
                 ;
         });
     };
+}
+
+//padding strings
+if (!String.prototype.padLeft) {
+    String.prototype.padLeft = function(len, fillWith) {
+        var fillLen = len - this.length;
+        if (fillLen > 0) {
+            return repeatString(fillWith,fillLen) + this;
+        } else {
+            return this.substr(0,len);
+        }
+    }
+}
+
+//padding strings
+if (!String.prototype.padRight) {
+    String.prototype.padRight = function(len, fillWith) {
+        var fillLen = len - this.length;
+        if (fillLen > 0) {
+            return this + repeatString(fillWith,fillLen);
+        } else {
+            return this.substr(0,len);
+        }
+    }
+}
+
+function repeatString(repeat, numberTimes) {
+    var repeated = "";
+    for(var i = 0; i < numberTimes; i++) {
+        repeated += repeat;
+    }
+    return repeated;
 }
 
 //helper function to clone a given object instance

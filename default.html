@@ -20,23 +20,31 @@
 
     </script>
 
+    <script>
+        function setTextValue() {
+            document.getElementById('ta1').value = cart.toText();
+        }
+    </script>
+
     <title>lite cart test</title>
 </head>
 <body>
 
     <label>Live Editing</label>
-    <div id="cart">
+    <div>
+        <div id="cart">
+<!--
+        <div id="cart" style="float:right;">
+-->
     </div>
     <input type="button" value="milk" id="milk" onclick="addToCart('milk',19.00)" />
     <input type="button" value="cheese" id="cheese" onclick="addToCart('cheese',50.00)" />
     <input type="button" value="milk tart" id="milk tart" onclick="addToCart('milk tart',40.00)" />
     <br>
-    <label for="testText">testText</label><input type="text" id="testText" value="x" />
-    <input type="button" value="test" id="testTextbtn" onclick="setTextValue('HELLO');" />
-    <!--<input type="button" value="test" id="testTextbtn" onclick="alert('HELLO');" />-->
+    <input type="button" value="Cart to Order" id="cartToOrder" onclick="setTextValue();" />
     <div><br /><br /></div>
 
-    <input type="button" value="Clear Cart" onclick="clearCart();" />
+    <input type="button" class="addToCartButton" value="Clear Cart" onclick="clearCart();" />
     <input type="button" value="Hello" onclick="alert('Hello');" />
 
 
